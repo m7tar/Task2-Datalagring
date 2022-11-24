@@ -1,0 +1,5 @@
+insert into student (contact_person, present_skill, number_of_lessons_taken, instrument_to_learn, rented_instrument, person_id) values ('Paulie Binstead', 'beginner', 18, 'violin', 'guitar', 781);
+insert into student (contact_person, present_skill, number_of_lessons_taken, instrument_to_learn, rented_instrument, person_id) values ('Marsh Grimmolby', 'advanced', 6, 'violin', 'piano', 825);
+insert into student (contact_person, present_skill, number_of_lessons_taken, instrument_to_learn, rented_instrument, person_id) values ('Merwin Di Franceschi', 'advanced', 10, 'violin', 'guitar', 729);
+insert into student (contact_person, present_skill, number_of_lessons_taken, instrument_to_learn, rented_instrument, person_id) values ('Devi Aleso', 'advanced', 23, 'guitar', 'violin', 150);
+insert into student (contact_person, present_skill, number_of_lessons_taken, instrument_to_learn, rented_instrument, person_id) values ('Mikey Dymoke', 'intermediate', 19, 'guitar', null, 119);

@@ -1,0 +1,10 @@
+insert into person (id, first_name, last_name, email, address, person_number) values (653.2293, 'Hersch', 'Haswell', 'hhaswell0@chron.com', '1 Carey Crossing', '649076-0353');
+insert into person (id, first_name, last_name, email, address, person_number) values (620.024, 'Berget', 'Daughtry', 'bdaughtry1@exblog.jp', '71507 Summerview Point', '330264-6007');
+insert into person (id, first_name, last_name, email, address, person_number) values (470.4018, 'Ellswerth', 'Meecher', 'emeecher2@nydailynews.com', '31450 Dwight Circle', '505655-2266');
+insert into person (id, first_name, last_name, email, address, person_number) values (781, 'Thain', 'Reeks', 'treeks3@unicef.org', '6 Golf View Parkway', '471774-5785');
+insert into person (id, first_name, last_name, email, address, person_number) values (1.7486, 'Larry', 'Bickmore', 'lbickmore4@networkadvertising.org', '1769 Southridge Park', '600089-9497');
+insert into person (id, first_name, last_name, email, address, person_number) values (825, 'Gabbey', 'Lalor', 'glalor5@meetup.com', '578 Bluejay Point', '420858-8339');
+insert into person (id, first_name, last_name, email, address, person_number) values (729, 'Brander', 'Dickin', 'bdickin6@weather.com', '3622 Artisan Trail', '164689-6907');
+insert into person (id, first_name, last_name, email, address, person_number) values (150, 'Evita', 'Eixenberger', 'eeixenberger7@imageshack.us', '32 Mendota Junction', '847356-2948');
+insert into person (id, first_name, last_name, email, address, person_number) values (119, 'Brandon', 'Skoof', 'bskoof8@macromedia.com', '0 Autumn Leaf Junction', '643251-7362');
+insert into person (id, first_name, last_name, email, address, person_number) values (193.1069, 'Hyacinthia', 'Shoute', 'hshoute9@xrea.com', '93040 Sunbrook Avenue', '790968-1339');
