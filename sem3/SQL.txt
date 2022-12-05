@@ -1,0 +1,41 @@
+/* number of lessons each month */
+CREATE VIEW lesson_per_month_per_year AS
+SELECT 
+EXTRACT(month FROM start_time) AS month,
+count(*) FROM timeslot WHERE EXTRACT(YEAR FROM start_time) = '2022' GROUP BY EXTRACT(month FROM start_time)
+ORDER BY EXTRACT(month FROM start_time) ASC;
+*********************************************
+/* show siblings of students*/
+CREATE VIEW sibiling_per_student AS
+SELECT student.id, COUNT(CASE WHEN sibling.sibling_student_id IS NOT NULL THEN 'has siblings' END) AS nr_siblings
+FROM student FULL JOIN sibling ON student.id = sibling.sibling_student_id GROUP BY student.id ORDER BY nr_siblings;
+*********************************************
+/* show instructors lessons under a specific month with a specific amount of lessons */
+CREATE VIEW instructor_lessons_per_month AS
+SELECT 
+lesson.instructor_id ,
+    COUNT(*) AS amount_of_lesson 
+    FROM lesson FULL JOIN timeslot ON lesson.id = timeslot.lesson_id
+    WHERE EXTRACT (month FROM timeslot.start_time) = 7
+    GROUP BY lesson.instructor_id
+    HAVING COUNT(*) > 1 
+    ;
+**************************************************
+/* number of ensembles showing next week with amount of seats */
+CREATE MATERIALIZED VIEW lesson_next_week AS
+    SELECT to_char(start_time, 'Day') as weekday, genre, start_time,
+    
+    CASE
+        WHEN CAST(student_amount AS int) = CAST(max_amount_of_students AS int) THEN 'full'
+        WHEN CAST(student_amount AS int) = CAST(max_amount_of_students AS int) - 1 THEN '1 seats left'
+        WHEN CAST(student_amount AS int) = CAST(max_amount_of_students AS int) - 2 THEN '2 seats left'
+        ELSE 'More than 2 seats left'
+    END as seats_left
+    FROM lesson INNER JOIN ensembles ON lesson.id = ensembles.lesson_id INNER JOIN timeslot ON lesson.id = timeslot.lesson_id
+    WHERE date_trunc('week', start_time) = date_trunc('week', now()) + interval '1 week' ORDER BY genre, weekday;
+
+
+
+
+
+
