@@ -61,30 +61,3 @@ CREATE MATERIALIZED VIEW lesson_next_week AS
     FROM lesson INNER JOIN ensembles ON lesson.id = ensembles.lesson_id INNER JOIN timeslot ON lesson.id = timeslot.lesson_id
     WHERE date_trunc('week', start_time) = date_trunc('week', now()) + interval '1 week' ORDER BY genre, weekday;
 
-
-
-
-
-
-
-
-------------------------------------------
--- group lesson
-SELECT group_lesson.lesson_id, timeslot.start_time FROM group_lesson JOIN timeslot ON group_lesson.lesson_id = timeslot.lesson_id;
-
--- ensembles
-SELECT ensembles.lesson_id, timeslot.start_time FROM ensembles JOIN timeslot ON ensembles.lesson_id = timeslot.lesson_id;
- 
--- include view individual 
-CREATE VIEW include AS SELECT lesson.id FROM lesson JOIN timeslot ON lesson.id = timeslot.lesson_id EXCEPT SELECT lesson_id FROM exclude
-SELECT include.id, timeslot.start_time FROM include JOIN timeslot ON timeslot.lesson_id = include.id;
-
--- exclude view group+ensembles
-CREATE VIEW exclude AS SELECT lesson_id FROM group_lesson UNION SELECT lesson_id FROM ensembles;
-
-
-
-
-
-
-
