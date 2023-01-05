@@ -1,4 +1,8 @@
 /* number of lessons each month */
+
+-- include view individual 
+CREATE VIEW include AS SELECT lesson.id FROM lesson JOIN timeslot ON lesson.id = timeslot.lesson_id EXCEPT SELECT lesson_id FROM exclude
+SELECT include.id, timeslot.start_time FROM include JOIN timeslot ON timeslot.lesson_id = include.id;
 --grouping all lesson types
 CREATE VIEW all_lessons AS
 SELECT 'group lesson' AS type, group_lesson.lesson_id, timeslot.start_time FROM group_lesson JOIN timeslot ON group_lesson.lesson_id = timeslot.lesson_id
